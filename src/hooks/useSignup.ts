@@ -2,13 +2,13 @@ import axios, { AxiosError, AxiosResponse } from "axios";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function useLogin(){
+export function useSignup(){
     const navigate = useNavigate()
-    const login = useCallback(
+    const signup = useCallback(
 
-        async (email:string,password:string)=>{
-            const responce = (await axios.post("http://localhost:8080/auth/login",{
-                email,password
+        async (email:string,name:string,password:string)=>{
+            const responce = (await axios.post("http://localhost:8080/auth/register",{
+                email,name,password
             }
             
             
@@ -22,16 +22,17 @@ export function useLogin(){
             if(responce.status == 201 ){
                 if(responce.data.accessToken){
                     localStorage.setItem("token",responce.data.accessToken)
+                    console.log("Navigated")
                     navigate("/")
                 }
             }
         }
 
 
-        ,[1]
+        ,[navigate]
     )
         return {
-            login
+            signup
         }
 
 }
