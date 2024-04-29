@@ -22,8 +22,6 @@ export function useSignup(){
             if(responce.status == 201 ){
                 if(responce.data.accessToken){
                     localStorage.setItem("token",responce.data.accessToken)
-                    console.log("Navigated")
-                    navigate("/")
                 }
             }
         }

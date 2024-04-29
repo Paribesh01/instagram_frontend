@@ -1,7 +1,9 @@
+import { ProfilePage } from "./profile/profile";
+
 export default function Root() {
   return (
-    <div>
-      <h1>Hello World!!</h1>
-    </div>
+    <>
+      <ProfilePage></ProfilePage>
+    </>
   );
 }
