@@ -1,13 +1,14 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { axiosClient, setAxiosHeader } from "../lib/httpClient";
 
 export function useLogin(){
     const navigate = useNavigate()
     const login = useCallback(
 
         async (email:string,password:string)=>{
-            const responce = (await axios.post("http://localhost:8080/auth/login",{
+            const responce = (await axiosClient.post("/auth/login",{
                 email,password
             }
             
@@ -21,6 +22,7 @@ export function useLogin(){
             console.log(responce)
             if(responce.status == 201 ){
                 if(responce.data.accessToken){
+                    setAxiosHeader(responce.data.accessToken)
                     localStorage.setItem("token",responce.data.accessToken)
                     navigate("/")
                 }

@@ -1,13 +1,14 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { axiosClient } from "../lib/httpClient";
 
 export function useSignup(){
     const navigate = useNavigate()
     const signup = useCallback(
 
         async (email:string,name:string,password:string)=>{
-            const responce = (await axios.post("http://localhost:8080/auth/register",{
+            const responce = (await axiosClient.post("/auth/register",{
                 email,name,password
             }
             
