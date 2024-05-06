@@ -1,28 +1,23 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useCallback, useState } from "react";
 import { axiosClient } from "../lib/httpClient";
-
+import { currentUser } from "../intreface/currentUser";
+import{useSetRecoilState}from "recoil"
+import { currentProfileState } from "../store/atoms/profile";
+import { useNavigate } from "react-router-dom";
 
 
 export function useProfile() {
     const navigate = useNavigate()
-    const getProfile = useCallback(async (): Promise<AxiosResponse | null> => {
-        try {
-            const token = localStorage.getItem("token");
-            if (!token) {
-                // No token available, handle accordingly
-                return null; 
-            }
+    const setCurrentUSerState = useSetRecoilState(currentProfileState)
 
-            const response = (await axiosClient.get("/auth/getProfile", {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            }))as AxiosResponse;
+    const getProfile = useCallback(async () => {
+        try {           
+            const response = (await axiosClient.get("/auth/getProfile"));
             
-            if (response.status === 200 && response.data) {
-                return response.data;
+            if ( response.data) {
+                const profileData = response.data as any
+                setCurrentUSerState(profileData)
             }
 
             // Handle other status codes if needed
@@ -37,10 +32,12 @@ export function useProfile() {
             } else {
                 console.error("Network Error:", error);
             }
+            navigate("/login")
         }
 
         return null; // Return null if profile fetch fails
-    }, [0]);
+    }, [setCurrentUSerState]);
+   
 
-    return { getProfile };
+    return { getProfile};
 }
