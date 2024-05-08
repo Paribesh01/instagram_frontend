@@ -22,6 +22,19 @@ export function Profile() {
         }
         alt="no image"
       />
+      <div>
+        name:{profiledata.name}
+        <br />
+        bio:{profiledata.userPreferences.bio}
+        <br />
+        gender:{profiledata.userPreferences.gender}
+        <br />
+        website:{profiledata.userPreferences.website}
+        <br />
+        Following:{profiledata._count.following}
+        <br />
+        Followed:{profiledata._count.followedBy}
+      </div>
     </h1>
   );
 }

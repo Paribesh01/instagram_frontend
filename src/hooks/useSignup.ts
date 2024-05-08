@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { axiosClient } from "../lib/httpClient";
+import { axiosClient, setAxiosHeader } from "../lib/httpClient";
 
 export function useSignup(){
     const navigate = useNavigate()
@@ -21,14 +21,17 @@ export function useSignup(){
 
             console.log(responce)
             if(responce.status == 201 ){
-                if(responce.data.accessToken){
-                    localStorage.setItem("token",responce.data.accessToken)
+                if(responce.data.access_token){
+                    setAxiosHeader(responce.data.access_token)
+                    localStorage.setItem("token",responce.data.access_token)
+                    navigate("/")
+
                 }
             }
         }
 
 
-        ,[navigate]
+        ,[1]
     )
         return {
             signup
