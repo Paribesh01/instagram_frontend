@@ -4,7 +4,7 @@ import { currentProfileState } from "../../store/atoms/profile";
 export function PostBox(props: any) {
   const profiledata = useRecoilValue(currentProfileState);
   const imageUrl = `http://localhost:8080/post/img/${props.post.imgUrl}`;
-  console.log(props);
+  // console.log(props);
   return (
     <div className="w-1/3 p-px md:px-3">
       <a href="#">

@@ -1,6 +1,7 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
 import { currentProfileState } from "../../store/atoms/profile";
+import { Link } from "react-router-dom";
 
 function Header() {
   const profiledata = useRecoilValue(currentProfileState);
@@ -33,13 +34,12 @@ function Header() {
             <i className="fas fa-check text-white text-xs absolute inset-x-0 ml-1 mt-px"></i>
           </span>
 
-          {/* follow button */}
-          <a
-            href="#"
-            className="bg-blue-500 px-2 py-1 text-white font-semibold text-sm rounded block text-center sm:inline-block "
+          <Link
+            to="/editProfile"
+            className=" bg-slate-500 px-2 py-1 text-white font-semibold text-sm rounded block text-center sm:inline-block "
           >
-            Follow
-          </a>
+            Edit Profile
+          </Link>
         </div>
 
         {/* post, following, followers list for medium screens */}
