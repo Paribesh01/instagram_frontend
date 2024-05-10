@@ -16,10 +16,20 @@ export const currentProfileState = atom({
         },
         _count:{
             followedBy:0,
-            following:0
-        }
+            following:0,
+            posts:0
+        },
        
-        
+        posts:[{
+            id:0,
+            title:"",
+            content:"",
+            imgUrl:"",
+            _count:{
+                likes:0,
+                Comment:0
+            }
+        }]
         
 
     }

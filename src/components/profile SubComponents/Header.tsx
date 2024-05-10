@@ -11,7 +11,7 @@ function Header() {
         <img
           className="w-20 h-20 md:w-40 md:h-40 object-cover rounded-full border-2 border-pink-600 p-1"
           src={
-            "http://localhost:8080/user/public/img/" +
+            "http://localhost:8080/user/img/" +
             profiledata.userPreferences.imageUrl
           }
           alt="profile"
@@ -45,7 +45,7 @@ function Header() {
         {/* post, following, followers list for medium screens */}
         <ul className="hidden md:flex space-x-8 mb-4">
           <li>
-            <span className="font-semibold">136</span>
+            <span className="font-semibold">{profiledata._count.posts}</span>
             posts
           </li>
 
