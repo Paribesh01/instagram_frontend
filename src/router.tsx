@@ -7,6 +7,7 @@ import Root from "./routes/Root";
 import { LoginPage } from "./routes/auth/login";
 import { SignupPage } from "./routes/auth/signup";
 import { Protected } from "./util/Protected";
+import { EditProfilePage } from "./routes/profile/editProfile";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +19,14 @@ export const router = createBrowserRouter(
         element={
           <Protected>
             <Root />
+          </Protected>
+        }
+      />
+      <Route
+        path="/editProfile"
+        element={
+          <Protected>
+            <EditProfilePage />
           </Protected>
         }
       />
