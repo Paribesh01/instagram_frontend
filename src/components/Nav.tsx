@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Nav() {
   return (
@@ -22,18 +23,22 @@ function Nav() {
         </div>
 
         <div className="space-x-4">
-          {/* <a
-            className="inline-block bg-blue-500 px-2 py-1 text-white font-semibold text-sm rounded"
-            href="#"
+          <Link
+            className="inline-block px-2 py-1 text-white font-semibold text-sm rounded"
+            to="createPost"
           >
-            Log In
-          </a>
-          <a
+            <img
+              className=" w-8"
+              src="https://img.freepik.com/premium-vector/add-post-icon-line-icon_707519-2569.jpg"
+              alt="add Post"
+            />
+          </Link>
+          {/* <a
             className="inline-block text-blue-500 font-semibold text-sm"
             href="#"
           >
             Sign Up
-          </a> */}
+          </a>  */}
         </div>
       </div>
     </nav>

@@ -8,6 +8,7 @@ import { LoginPage } from "./routes/auth/login";
 import { SignupPage } from "./routes/auth/signup";
 import { Protected } from "./util/Protected";
 import { EditProfilePage } from "./routes/profile/editProfile";
+import { CreatePostPage } from "./routes/post/CreatePost";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,6 +28,14 @@ export const router = createBrowserRouter(
         element={
           <Protected>
             <EditProfilePage />
+          </Protected>
+        }
+      />
+      <Route
+        path="/createPost"
+        element={
+          <Protected>
+            <CreatePostPage />
           </Protected>
         }
       />
