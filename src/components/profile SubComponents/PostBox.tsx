@@ -1,5 +1,6 @@
 import { useRecoilValue } from "recoil";
 import { currentProfileState } from "../../store/atoms/profile";
+import { Link } from "react-router-dom";
 
 export function PostBox(props: any) {
   const profiledata = useRecoilValue(currentProfileState);
@@ -7,7 +8,7 @@ export function PostBox(props: any) {
   // console.log(props);
   return (
     <div className="w-1/3 p-px md:px-3">
-      <a href="#">
+      <Link to={`/fullpost/${props.post.id}`}>
         <article className="post bg-gray-100 text-white relative pb-full md:mb-6">
           <img
             className="w-full h-full absolute left-0 top-0 object-cover"
@@ -30,7 +31,7 @@ export function PostBox(props: any) {
             </div>
           </div>
         </article>
-      </a>
+      </Link>
     </div>
   );
 }

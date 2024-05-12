@@ -40,10 +40,9 @@ function Posts() {
       </ul>
 
       {/* Flexbox grid */}
-      <div className="flex flex-wrap -mx-px md:-mx-3">
+      <div className="flex flex-wrap -mx-px md:-mx-3 w-screen justify-center items-center">
         {profiledata.posts.map((post) => (
           <>
-            {/* Assuming PostBox is a component to render a single post */}
             <PostBox post={post} />
           </>
         ))}
