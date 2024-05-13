@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { currentProfileState } from "../store/atoms/profile";
+import { profile } from "console";
 
 function PostCard(props: any) {
   const profiledata = useRecoilValue(currentProfileState);
@@ -18,10 +19,7 @@ function PostCard(props: any) {
           />
           <div className="ml-3 ">
             <span className="text-sm font-semibold antialiased block leading-tight">
-              8fact
-            </span>
-            <span className="text-gray-600 text-xs block">
-              Asheville, North Carolina
+              {profiledata.name}
             </span>
           </div>
         </div>
@@ -48,7 +46,10 @@ function PostCard(props: any) {
             </svg>
           </div>
         </div>
-        <div className="font-semibold text-sm mx-4 mt-2 mb-4">92,372 likes</div>
+        <div className="font-semibold text-sm mx-4 mt-2 mb-4 flex gap-5">
+          <span>{props.post._count.likes} Likes</span>
+          <span>{props.post._count.Comment} Comments</span>
+        </div>
       </div>
     </div>
   );

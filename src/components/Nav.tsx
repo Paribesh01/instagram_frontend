@@ -25,12 +25,22 @@ function Nav() {
         <div className="space-x-4">
           <Link
             className="inline-block px-2 py-1 text-white font-semibold text-sm rounded"
-            to="createPost"
+            to="/createPost"
           >
             <img
               className=" w-8"
               src="https://img.freepik.com/premium-vector/add-post-icon-line-icon_707519-2569.jpg"
               alt="add Post"
+            />
+          </Link>
+          <Link
+            className="inline-block px-2 py-1 text-white font-semibold text-sm rounded"
+            to="/"
+          >
+            <img
+              className=" w-8"
+              src="https://cdn.vectorstock.com/i/500p/53/42/user-member-avatar-face-profile-icon-vector-22965342.jpg"
+              alt="Profile"
             />
           </Link>
           {/* <a
