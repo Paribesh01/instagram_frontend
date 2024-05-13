@@ -2,6 +2,7 @@ import { useState } from "react";
 import { axiosClient } from "../lib/httpClient";
 import { AxiosResponse } from "axios";
 import { useNavigate } from "react-router-dom";
+import Nav from "./Nav";
 
 export function Post() {
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ export function Post() {
 
   return (
     <>
+      <Nav></Nav>
       <div className="h-screen bg-gray-50 flex flex-col justify-center items-center">
         <div className="bg-white border border-gray-300 w-1/2 h-2/3 py-8 flex items-center flex-col mb-3 justify-center">
           <h1 className=" font-bold text-4xl absolute top-44">Create Post</h1>

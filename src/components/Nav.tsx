@@ -6,11 +6,13 @@ function Nav() {
     <nav className="border-b px-4 py-2 bg-white">
       <div className="flex flex-wrap items-center justify-between md:justify-around">
         {/* logo */}
-        <img
-          className="h-10"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/150px-Instagram_logo.svg.png"
-          alt="instagram"
-        />
+        <Link to={"/"}>
+          <img
+            className="h-10"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/150px-Instagram_logo.svg.png"
+            alt="instagram"
+          />
+        </Link>
 
         {/* search */}
         <div className="relative hidden sm:block text-gray-500">
@@ -35,7 +37,7 @@ function Nav() {
           </Link>
           <Link
             className="inline-block px-2 py-1 text-white font-semibold text-sm rounded"
-            to="/"
+            to="/profile"
           >
             <img
               className=" w-8"

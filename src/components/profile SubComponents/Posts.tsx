@@ -6,7 +6,7 @@ import { currentProfileState } from "../../store/atoms/profile";
 function Posts() {
   const profiledata = useRecoilValue(currentProfileState);
   return (
-    <div className="px-px md:px-3">
+    <div className="px-px md:px-3 ">
       {/* Mobile user info */}
       <ul className="flex md:hidden justify-around space-x-8 border-t text-center p-2 text-gray-600 leading-snug text-sm">
         <li>
@@ -40,7 +40,7 @@ function Posts() {
       </ul>
 
       {/* Flexbox grid */}
-      <div className="flex flex-wrap -mx-px md:-mx-3 w-screen justify-center items-center">
+      <div className="flex flex-wrap -mx-px md:-mx-3   justify-center items-center">
         {profiledata.posts.map((post) => (
           <>
             <PostBox post={post} />

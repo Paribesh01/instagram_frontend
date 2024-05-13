@@ -7,7 +7,7 @@ export function PostBox(props: any) {
   const imageUrl = `http://localhost:8080/post/img/${props.post.imgUrl}`;
   // console.log(props);
   return (
-    <div className="w-1/3 p-px md:px-3">
+    <div className=" w-1/4 p-px md:px-3">
       <Link to={`/fullpost/${props.post.id}`}>
         <article className="post bg-gray-100 text-white relative pb-full md:mb-6">
           <img
