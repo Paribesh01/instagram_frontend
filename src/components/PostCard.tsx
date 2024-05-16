@@ -5,18 +5,21 @@ import { profile } from "console";
 
 function PostCard(props: any) {
   const profiledata = useRecoilValue(currentProfileState);
+  var proifleImg;
+  if (props.feed) {
+    proifleImg =
+      "http://localhost:8080/user/img/" +
+      props.post.author.userPreferences.imageUrl;
+  } else {
+    proifleImg = "http://localhost:8080/user/img/" + props.author.imgUrl;
+  }
   const imageUrl = `http://localhost:8080/post/img/${props.post.imgUrl}`;
+
   return (
     <div className="bg-gray-100 p-4 flex w-screen  justify-center">
       <div className="bg-white border rounded-sm max-w-md">
         <div className="flex items-center px-4 py-3">
-          <img
-            className="h-8 w-8 rounded-full"
-            src={
-              "http://localhost:8080/user/img/" +
-              profiledata.userPreferences.imageUrl
-            }
-          />
+          <img className="h-8 w-8 rounded-full" src={proifleImg} />
           <div className="ml-3 ">
             <span className="text-sm font-semibold antialiased block leading-tight">
               {profiledata.name}

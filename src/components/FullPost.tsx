@@ -39,7 +39,7 @@ export function FullPost(props: { id: string }) {
           ref={String(post.id) === id ? postRef : null}
           id={`post-${post.id}`}
         >
-          <PostCard post={post} />
+          <PostCard post={post} feed={false} />
         </div>
       ))}
     </>
